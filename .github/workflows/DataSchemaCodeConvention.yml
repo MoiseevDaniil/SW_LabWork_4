@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  SQLLinter:
+  JSONLinter:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code in Repository
