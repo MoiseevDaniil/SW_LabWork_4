@@ -21,35 +21,35 @@ jobs:
 
       - name: Validate JSON_DetailedDataSchema_Example.json structure
         run: |
-          if ! jq empty JSON_DetailedDataSchema_Example.json; then
-            echo "DataSchema.json не відповідає JSON-формату"
+          if ! jq empty SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json; then
+            echo "JSON_DetailedDataSchema_Example.json не відповідає JSON-формату"
             exit 1
           fi
 
       - name: Check coding conventions for LiteraryWork
         run: |
-          if jq -e '.properties.LiteraryWork.properties["Назва"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.LiteraryWork.properties["Назва"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Назва відповідає правилам";
           else
             echo "Помилка: Назва повинна бути типу string";
             exit 1;
           fi
 
-          if jq -e '.properties.LiteraryWork.properties["Автор"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.LiteraryWork.properties["Автор"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Автор відповідає правилам";
           else
             echo "Помилка: Автор повинен бути типу string";
             exit 1;
           fi
 
-          if jq -e '.properties.LiteraryWork.properties["Жанр"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.LiteraryWork.properties["Жанр"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Жанр відповідає правилам";
           else
             echo "Помилка: Жанр повинен бути типу string";
             exit 1;
           fi
 
-          if jq -e '.properties.LiteraryWork.properties["Дата Публікації"].format == "date"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.LiteraryWork.properties["Дата Публікації"].format == "date"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Дата Публікації відповідає формату дати";
           else
             echo "Помилка: Дата Публікації повинна мати формат date";
@@ -58,21 +58,21 @@ jobs:
 
       - name: Check coding conventions for Recommendation
         run: |
-          if jq -e '.properties.Recommendation.properties["Рекомендований Твір"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.Recommendation.properties["Рекомендований Твір"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Рекомендований Твір відповідає правилам";
           else
             echo "Помилка: Рекомендований Твір повинен бути типу string";
             exit 1;
           fi
 
-          if jq -e '.properties.Recommendation.properties["Рейтинг"].type == "integer"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.Recommendation.properties["Рейтинг"].type == "integer"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Рейтинг відповідає правилам";
           else
             echo "Помилка: Рейтинг повинен бути типу integer";
             exit 1;
           fi
 
-          if jq -e '.properties.Recommendation.properties["Рейтинг"].minimum == 1 and .properties.Recommendation.properties["Рейтинг"].maximum == 5' DataSchema.json > /dev/null; then
+          if jq -e '.properties.Recommendation.properties["Рейтинг"].minimum == 1 and .properties.Recommendation.properties["Рейтинг"].maximum == 5' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Рейтинг відповідає обмеженням (1-5)";
           else
             echo "Помилка: Рейтинг повинен бути в межах від 1 до 5";
@@ -81,14 +81,14 @@ jobs:
 
       - name: Check coding conventions for Notes
         run: |
-          if jq -e '.properties.Notes.properties["Текст"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.Notes.properties["Текст"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Текст нотаток відповідає правилам";
           else
             echo "Помилка: Текст нотаток повинен бути типу string";
             exit 1;
           fi
 
-          if jq -e '.properties.Notes.properties["Дата Створення"].format == "date"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.Notes.properties["Дата Створення"].format == "date"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Дата Створення нотаток відповідає формату дати";
           else
             echo "Помилка: Дата Створення нотаток повинна мати формат date";
@@ -97,14 +97,14 @@ jobs:
 
       - name: Check coding conventions for Context
         run: |
-          if jq -e '.properties.Context.properties["Тип Контексту"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.Context.properties["Тип Контексту"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Тип Контексту відповідає правилам";
           else
             echo "Помилка: Тип Контексту повинен бути типу string";
             exit 1;
           fi
 
-          if jq -e '.properties.Context.properties["Текст"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.Context.properties["Текст"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Текст контексту відповідає правилам";
           else
             echo "Помилка: Текст контексту повинен бути типу string";
@@ -113,14 +113,14 @@ jobs:
 
       - name: Check coding conventions for CriticalReview
         run: |
-          if jq -e '.properties.CriticalReview.properties["Оцінка"].type == "integer"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.CriticalReview.properties["Оцінка"].type == "integer"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Оцінка критичного огляду відповідає правилам";
           else
             echo "Помилка: Оцінка критичного огляду повинна бути типу integer";
             exit 1;
           fi
 
-          if jq -e '.properties.CriticalReview.properties["Оцінка"].minimum == 1 and .properties.CriticalReview.properties["Оцінка"].maximum == 10' DataSchema.json > /dev/null; then
+          if jq -e '.properties.CriticalReview.properties["Оцінка"].minimum == 1 and .properties.CriticalReview.properties["Оцінка"].maximum == 10' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Оцінка відповідає обмеженням (1-10)";
           else
             echo "Помилка: Оцінка повинна бути в межах від 1 до 10";
@@ -129,14 +129,14 @@ jobs:
 
       - name: Check coding conventions for ImportExportNotes
         run: |
-          if jq -e '.properties.ImportExportNotes.properties["Формат Файлу"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.ImportExportNotes.properties["Формат Файлу"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Формат Файлу відповідає правилам";
           else
             echo "Помилка: Формат Файлу повинен бути типу string";
             exit 1;
           fi
 
-          if jq -e '.properties.ImportExportNotes.properties["Тип Операції"].type == "string"' DataSchema.json > /dev/null; then
+          if jq -e '.properties.ImportExportNotes.properties["Тип Операції"].type == "string"' SW_LabWork_4/Laba4/JSON_DetailedDataSchema_Example.json > /dev/null; then
             echo "Тип Операції відповідає правилам";
           else
             echo "Помилка: Тип Операції повинен бути типу string";
