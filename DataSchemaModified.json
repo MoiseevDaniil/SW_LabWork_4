@@ -7,17 +7,17 @@
       "type": "object",
       "properties": {
         "Назва": { 
-          "type": "number",  // неправильний тип даних
+          "type": "number",  
           "description": "Назва літературного твору",
           "pattern": "^[A-Za-zА-Яа-яІіЇїЄє\\s]{1,100}$"
         },
         "Автор": { 
           "type": "string", 
           "description": "Автор літературного твору"
-          "pattern": "^[A-Za-zА-Яа-яІіЇїЄє\\s]{1,50}$"  // пропущена кома
+          "pattern": "^[A-Za-zА-Яа-яІіЇїЄє\\s]{1,50}$"  
         },
-        "Жанр": { "type": "boolean", "description": "Жанр літературного твору" },  // неправильний тип даних
-        "Дата Публікації": { "type": "string", "format": "time", "description": "Дата публікації твору" }  // неправильний формат
+        "Жанр": { "type": "boolean", "description": "Жанр літературного твору" },  
+        "Дата Публікації": { "type": "string", "format": "time", "description": "Дата публікації твору" }  
       },
       "required": ["Назва", "Автор", "Жанр"]
     },
@@ -25,44 +25,44 @@
       "description": "Рекомендації до літературних творів",
       "type": "object",
       "properties": {
-        "Рекомендований Твір": { "type": "number", "description": "Назва рекомендованого твору" },  // неправильний тип даних
-        "Рейтинг": { "type": "string", "description": "Рейтинг твору", "minimum": 1, "maximum": 5 },  // неправильний тип даних для мінімуму і максимуму
+        "Рекомендований Твір": { "type": "number", "description": "Назва рекомендованого твору" },  
+        "Рейтинг": { "type": "string", "description": "Рейтинг твору", "minimum": 1, "maximum": 5 }, 
         "Відгук": { "type": "integer", "description": "Відгук користувача" }  
       }
-      // пропущене поле required
+   
     },
     "Notes": {
       "description": "Нотатки до літературних творів",
       "type": "object",
       "properties": {
-        "Текст": { "type": "integer", "description": "Текст нотаток" },  // неправильний тип даних
-        "Дата Створення": { "type": "string", "format": "date-time", "description": "Дата створення нотаток" },  // неправильний формат
-        "Автор Нотаток": { "type": "integer", "description": "Автор, що створив нотатки" }  // неправильний тип даних
+        "Текст": { "type": "integer", "description": "Текст нотаток" },  
+        "Дата Створення": { "type": "string", "format": "date-time", "description": "Дата створення нотаток" },  
+        "Автор Нотаток": { "type": "integer", "description": "Автор, що створив нотатки" }  
       }
     },
     "Context": {
       "description": "Контекст літературних творів",
       "type": "object",
       "properties": {
-        "Тип Контексту": { "type": "integer", "description": "Тип контексту (історичний, соціальний)" },  // неправильний тип даних
-        "Текст": { "type": "number", "description": "Текст додаткової інформації" }  // неправильний тип даних
+        "Тип Контексту": { "type": "integer", "description": "Тип контексту (історичний, соціальний)" },  
+        "Текст": { "type": "number", "description": "Текст додаткової інформації" }  
       }
     },
     "CriticalReview": {
       "description": "Критичні огляди літературних творів",
       "type": "object",
       "properties": {
-        "Текст": { "type": "integer", "description": "Текст критичного огляду" },  // неправильний тип даних
-        "Автор": { "type": "integer", "description": "Автор критичного огляду" },  // неправильний тип даних
-        "Оцінка": { "type": "string", "description": "Оцінка твору", "minimum": 1, "maximum": 10 }  // неправильний тип даних для мінімуму і максимуму
+        "Текст": { "type": "integer", "description": "Текст критичного огляду" },  
+        "Автор": { "type": "integer", "description": "Автор критичного огляду" }, 
+        "Оцінка": { "type": "string", "description": "Оцінка твору", "minimum": 1, "maximum": 10 } 
       }
     },
     "ImportExportNotes": {
       "description": "Імпорт та експорт нотатків",
       "type": "object",
       "properties": {
-        "Формат Файлу": { "type": "number", "description": "Формат файлу для імпорту/експорту (.txt, .docx, .pdf)" },  // неправильний тип даних
-        "Тип Операції": { "type": "number", "description": "Тип операції ('Імпорт', 'Експорт')" }  // неправильний тип даних
+        "Формат Файлу": { "type": "number", "description": "Формат файлу для імпорту/експорту (.txt, .docx, .pdf)" },  
+        "Тип Операції": { "type": "number", "description": "Тип операції ('Імпорт', 'Експорт')" }  
       }
     }
   }
