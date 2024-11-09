@@ -19,9 +19,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq
 
-      - name: Validate DataSchema.json structure
+      - name: Validate JSON_DetailedDataSchema_Example.json structure
         run: |
-          if ! jq empty DataSchema.json; then
+          if ! jq empty JSON_DetailedDataSchema_Example.json; then
             echo "DataSchema.json не відповідає JSON-формату"
             exit 1
           fi
