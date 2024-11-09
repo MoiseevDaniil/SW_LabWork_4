@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Code in Repository
         uses: actions/checkout@v3
 
-      - name: Start SQL Linter
+      - name: Start JSON Linter
         run: |
-          pip install sqlfluff
-          sqlfluff lint $GITHUB_WORKSPACE/RelationDB_DetailedDataSchema.sql --dialect postgres
+          npm i -g @prantlf/jsonlint
+          jsonlint $GITHUB_WORKSPACE/JSON_DetailedDataSchema_Example.json
