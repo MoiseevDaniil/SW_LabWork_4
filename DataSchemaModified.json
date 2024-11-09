@@ -7,63 +7,64 @@
       "type": "object",
       "properties": {
         "Назва": { 
-          "type": "number", 
+          "type": "number",  // неправильний тип даних
           "description": "Назва літературного твору",
           "pattern": "^[A-Za-zА-Яа-яІіЇїЄє\\s]{1,100}$"
         },
         "Автор": { 
-          "type": "number", 
-          "description": "Автор літературного твору",
-          "pattern": "^[A-Za-zА-Яа-яІіЇїЄє\\s]{1,50}$"
+          "type": "string", 
+          "description": "Автор літературного твору"
+          "pattern": "^[A-Za-zА-Яа-яІіЇїЄє\\s]{1,50}$"  // пропущена кома
         },
-        "Жанр": { "type": "string", "description": "Жанр літературного твору" },
-        "Дата Публікації": { "type": "number", "description": "Дата публікації твору" }
+        "Жанр": { "type": "boolean", "description": "Жанр літературного твору" },  // неправильний тип даних
+        "Дата Публікації": { "type": "string", "format": "time", "description": "Дата публікації твору" }  // неправильний формат
       },
-      "required": ["Назва", "Автор"]
+      "required": ["Назва", "Автор", "Жанр"]
     },
     "Recommendation": {
       "description": "Рекомендації до літературних творів",
       "type": "object",
       "properties": {
-        "Рекомендований Твір": { "type": "string", "description": "Назва рекомендованого твору" },
-        "Рейтинг": { "type": "string", "description": "Рейтинг твору", "minimum": 1, "maximum": 5 },
-        "Відгук": { "type": "integer", "description": "Відгук користувача" }
-      },
-      "required": ["Рекомендований Твір"]
+        "Рекомендований Твір": { "type": "number", "description": "Назва рекомендованого твору" },  // неправильний тип даних
+        "Рейтинг": { "type": "string", "description": "Рейтинг твору", "minimum": 1, "maximum": 5 },  // неправильний тип даних для мінімуму і максимуму
+        "Відгук": { "type": "integer", "description": "Відгук користувача" }  
+      }
+      // пропущене поле required
     },
     "Notes": {
       "description": "Нотатки до літературних творів",
       "type": "object",
       "properties": {
-        "Текст": { "type": "number", "description": "Текст нотаток" },
-        "Дата Створення": { "type": "string", "description": "Дата створення нотаток" },
-        "Автор Нотаток": { "type": "number", "description": "Автор, що створив нотатки" }
+        "Текст": { "type": "integer", "description": "Текст нотаток" },  // неправильний тип даних
+        "Дата Створення": { "type": "string", "format": "date-time", "description": "Дата створення нотаток" },  // неправильний формат
+        "Автор Нотаток": { "type": "integer", "description": "Автор, що створив нотатки" }  // неправильний тип даних
       }
     },
     "Context": {
       "description": "Контекст літературних творів",
       "type": "object",
       "properties": {
-        "Тип Контексту": { "type": "number", "description": "Тип контексту (історичний, соціальний)" },
-        "Текст": { "type": "number", "description": "Текст додаткової інформації" }
+        "Тип Контексту": { "type": "integer", "description": "Тип контексту (історичний, соціальний)" },  // неправильний тип даних
+        "Текст": { "type": "number", "description": "Текст додаткової інформації" }  // неправильний тип даних
       }
     },
     "CriticalReview": {
       "description": "Критичні огляди літературних творів",
       "type": "object",
       "properties": {
-        "Текст": { "type": "number", "description": "Текст критичного огляду" },
-        "Автор": { "type": "number", "description": "Автор критичного огляду" },
-        "Оцінка": { "type": "string", "description": "Оцінка твору", "minimum": 1, "maximum": 10 }
+        "Текст": { "type": "integer", "description": "Текст критичного огляду" },  // неправильний тип даних
+        "Автор": { "type": "integer", "description": "Автор критичного огляду" },  // неправильний тип даних
+        "Оцінка": { "type": "string", "description": "Оцінка твору", "minimum": 1, "maximum": 10 }  // неправильний тип даних для мінімуму і максимуму
       }
     },
     "ImportExportNotes": {
       "description": "Імпорт та експорт нотатків",
       "type": "object",
       "properties": {
-        "Формат Файлу": { "type": "number", "description": "Формат файлу для імпорту/експорту (.txt, .docx, .pdf)" },
-        "Тип Операції": { "type": "number", "description": "Тип операції ('Імпорт', 'Експорт')" }
+        "Формат Файлу": { "type": "number", "description": "Формат файлу для імпорту/експорту (.txt, .docx, .pdf)" },  // неправильний тип даних
+        "Тип Операції": { "type": "number", "description": "Тип операції ('Імпорт', 'Експорт')" }  // неправильний тип даних
       }
     }
   }
 }
+
