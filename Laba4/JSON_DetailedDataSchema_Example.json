@@ -1,0 +1,69 @@
+{
+  "description": "Schema for literary works",
+  "type": "object",
+  "properties": {
+    "LiteraryWork": {
+      "description": "Деталі літературних творів",
+      "type": "object",
+      "properties": {
+        "Назва": { 
+          "type": "string", 
+          "description": "Назва літературного твору",
+          "pattern": "^[A-Za-zА-Яа-яІіЇїЄє\\s]{1,100}$"
+        },
+        "Автор": { 
+          "type": "string", 
+          "description": "Автор літературного твору",
+          "pattern": "^[A-Za-zА-Яа-яІіЇїЄє\\s]{1,50}$"
+        },
+        "Жанр": { "type": "string", "description": "Жанр літературного твору" },
+        "Дата Публікації": { "type": "string", "format": "date", "description": "Дата публікації твору" }
+      },
+      "required": ["Назва", "Автор", "Жанр", "Дата Публікації"]
+    },
+    "Recommendation": {
+      "description": "Рекомендації до літературних творів",
+      "type": "object",
+      "properties": {
+        "Рекомендований Твір": { "type": "string", "description": "Назва рекомендованого твору" },
+        "Рейтинг": { "type": "integer", "description": "Рейтинг твору", "minimum": 1, "maximum": 5 },
+        "Відгук": { "type": "string", "description": "Відгук користувача" }
+      },
+      "required": ["Рекомендований Твір", "Рейтинг"]
+    },
+    "Notes": {
+      "description": "Нотатки до літературних творів",
+      "type": "object",
+      "properties": {
+        "Текст": { "type": "string", "description": "Текст нотаток" },
+        "Дата Створення": { "type": "string", "format": "date", "description": "Дата створення нотаток" },
+        "Автор Нотаток": { "type": "string", "description": "Автор, що створив нотатки" }
+      }
+    },
+    "Context": {
+      "description": "Контекст літературних творів",
+      "type": "object",
+      "properties": {
+        "Тип Контексту": { "type": "string", "description": "Тип контексту (історичний, соціальний)" },
+        "Текст": { "type": "string", "description": "Текст додаткової інформації" }
+      }
+    },
+    "CriticalReview": {
+      "description": "Критичні огляди літературних творів",
+      "type": "object",
+      "properties": {
+        "Текст": { "type": "string", "description": "Текст критичного огляду" },
+        "Автор": { "type": "string", "description": "Автор критичного огляду" },
+        "Оцінка": { "type": "integer", "description": "Оцінка твору", "minimum": 1, "maximum": 10 }
+      }
+    },
+    "ImportExportNotes": {
+      "description": "Імпорт та експорт нотатків",
+      "type": "object",
+      "properties": {
+        "Формат Файлу": { "type": "string", "description": "Формат файлу для імпорту/експорту (.txt, .docx, .pdf)" },
+        "Тип Операції": { "type": "string", "description": "Тип операції ('Імпорт', 'Експорт')" }
+      }
+    }
+  }
+}
