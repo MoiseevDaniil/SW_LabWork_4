@@ -1,0 +1,25 @@
+name: Print Software Versions
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  check-node-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Print Node.js Version
+        run: node --version
+
+  check-postgresql-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Install PostgreSQL client
+        run: sudo apt-get install -y postgresql-client
+      - name: Print PostgreSQL Version
+        run: psql --version
